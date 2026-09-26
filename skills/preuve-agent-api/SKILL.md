@@ -16,7 +16,7 @@ Preuve AI analyzes startup ideas against live market evidence (60+ sources) and 
 
 ## Setup (once)
 
-Two transports, same six tools. Both need an API key created at https://preuve.ai (Account → API Keys; shown once at creation) — except the claude.ai connector, which handles the key via OAuth.
+Two transports, same six tools. Both need an API key created at https://preuve.ai (Account → API Keys; shown once at creation), except an OAuth connection (the claude.ai connector, or Cursor), which signs in and gets its key at a consent screen.
 
 **Remote (preferred — no file to install):**
 
@@ -26,6 +26,8 @@ claude mcp add preuve --transport http https://mcp.preuve.ai/mcp \
 ```
 
 In claude.ai (web/desktop), add a custom connector pointing at `https://mcp.preuve.ai/mcp` instead — OAuth sign-in and a consent screen replace manual key handling.
+
+In Cursor, install the Preuve plugin, or add `https://mcp.preuve.ai/mcp` to `mcp.json` with no header. Cursor opens the same sign-in and consent screen, so there is no key to paste. If the Preuve tools are already listed in this session, setup is done.
 
 **Local stdio (the original server, still supported):**
 
@@ -38,7 +40,7 @@ claude mcp add preuve \
 **Doing client work? Ask for the Agency scopes AT CREATION.** There are two, they are enforced per route and neither implies the other: starting a client project needs `agency:write`, while `get_agency` and the two agency reads need `agency:read`. Ask for both. A key never gets either by default — a key created with no preference carries the five personal scopes and nothing else, because these two reach a whole workspace of other people's client reports. There is no way to widen a key afterwards, so a key made without them means making another one.
 
 - **Creating a key by hand**: tick **Include Agency workspace access** in Account → API Keys. Self-serve on a paid personal plan, or in a Consultant or Agency workspace with an active subscription.
-- **claude.ai connector**: approve the Agency permissions on the consent screen. Works on any plan, free included. Check the screen actually lists them before approving — if it does not, the client re-sent a scope request it cached at registration, and approving mints another key without them while revoking the one you have.
+- **OAuth connection (claude.ai connector, Cursor)**: approve the Agency permissions on the consent screen. Works on any plan, free included. Check the screen actually lists them before approving — if it does not, the client re-sent a scope request it cached at registration, and approving mints another key without them while revoking the one you have.
 
 Skip this on a personal account: the scopes do nothing without a workspace, and the five personal tools need none of them.
 
