@@ -1,0 +1,28 @@
+{
+  "name": "preuve",
+  "displayName": "Preuve",
+  "version": "1.0.0",
+  "minClientVersions": {
+    "cursor": "3.13.0"
+  },
+  "description": "Validate startup ideas with source-linked market research and competitor analysis.",
+  "author": {
+    "name": "Preuve AI",
+    "email": "support@preuve.ai"
+  },
+  "homepage": "https://preuve.ai/mcp",
+  "repository": "https://github.com/VXNCXNX/preuve-cursor-plugin",
+  "license": "MIT",
+  "logo": "assets/logo.png",
+  "keywords": [
+    "preuve",
+    "startup",
+    "idea-validation",
+    "market-research",
+    "competitor-analysis",
+    "mcp"
+  ],
+  "category": "integrations",
+  "tags": ["preuve", "startup", "market-research", "mcp"],
+  "mcpServers": "./mcp.json"
+}
